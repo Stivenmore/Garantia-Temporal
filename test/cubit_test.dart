@@ -6,23 +6,24 @@ void main() {
   blocTest('This test is to check the wrong answer from the server',
       build: () => FirebaseCubit(),
       act: (FirebaseCubit cubit) async {
-        await cubit.setData(name: '',lastname: '',date: '', direction: []);
+        await cubit.setData(name: '', lastname: '', date: '', direction: []);
       },
-      expect: ()=> [isA<FirebaseInitial>(), isA<FirebaseError>()]
-      );
-    
+      expect: () => [isA<FirebaseInitial>(), isA<FirebaseError>()]);
+
   blocTest('This test is to check from the server',
       build: () => FirebaseCubit(),
       act: (FirebaseCubit cubit) async {
-        await cubit.setData(name: 'Noah',lastname: 'Morelo',date: 'May 6 2000', direction: []);
+        await cubit.setData(
+            name: 'Noah',
+            lastname: 'Morelo',
+            date: 'May 6 2000',
+            direction: ['cra 19', 'no se que mas']);
       },
-      expect: ()=> [isA<FirebaseInitial>(), isA<FirebaseSnapbar>()]
-      );
-   blocTest('getData',
+      expect: () => [isA<FirebaseInitial>(), isA<FirebaseSnapbar>()]);
+  blocTest('getData',
       build: () => FirebaseCubit(),
       act: (FirebaseCubit cubit) async {
         await cubit.getDate();
       },
-      expect: ()=> [isA<FirebaseInitial>(), isA<FirebaseLoaded>()]
-      );   
+      expect: () => [isA<FirebaseInitial>(), isA<FirebaseLoaded>()]);
 }
