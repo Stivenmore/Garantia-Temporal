@@ -16,7 +16,7 @@ class FirebaseCubit extends Cubit<FirebaseState> {
         super(FirebaseInitial());
 
   Future<void> setData(
-      {String name, String lastname, String date, List direction}) async {
+      {String name, String lastname, String date, List direction,}) async {
     emit(FirebaseInitial());
     ServiceResult result =
         await _repository.setDataforFirebase(name, lastname, date, direction);
