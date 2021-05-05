@@ -34,10 +34,13 @@ class FirebaseCubit extends Cubit<FirebaseState> {
     ServiceResult<List<Register>> result =
         await _repository.getDatafrmFirebase();
     if (result.data != null) {
+      print('Loaded');
       emit(FirebaseLoaded(register: result.data));
     } else if (result.status == true) {
+      print('SnackBar, no hay usuarios');
       emit(FirebaseSnapbar(snapbar: result.message));
     } else {
+      print('Error');
       emit(FirebaseError(message: result.message));
     }
   }

@@ -11,13 +11,6 @@ class Repository implements Services {
       String name, String lastname, String date, List direction) async {
     try {
       print('entramos en envio de data');
-      //Pense en validar con el nombre y apellido si el usuario ya estaba registrado
-      //Pero no es necesario dado que ello no se pide
-
-      //valido si ya existe un usuario con esas credenciales
-      //valido con el nombre y apellido
-      //si existe le informo que ya esta registrado, de lo contrario lo registro
-
       await _firestore.collection('Register').doc().set({
         'name': name,
         'lastname': lastname,

@@ -4,7 +4,7 @@ class Register extends Equatable {
   final String name;
   final String lastname;
   final String date;
-  final String direction;
+  final List direction;
 
   Register(
       {this.name,

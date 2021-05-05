@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pruebatecnica/domain/cubit/firebase_cubit.dart';
+import 'package:pruebatecnica/ui/pages/view_register/view_register.dart';
 
 class StateSnapbar extends StatefulWidget {
   final String snapbartext;
@@ -24,7 +25,7 @@ class _StateSnapbarState extends State<StateSnapbar> {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
-      lastDate: DateTime(2100),
+      lastDate: DateTime.now(),
     );
     if (_date != null) {
       setState(() {
@@ -55,6 +56,29 @@ class _StateSnapbarState extends State<StateSnapbar> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Color(0xffE04536),
+          onPressed: () {
+            setState(() {
+              loading = true;
+            });
+            context.read<FirebaseCubit>().getDate().whenComplete(() {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ViewRegister(),
+                  ));
+            });
+          },
+          child: loading == true
+              ? CircularProgressIndicator(
+                  backgroundColor: Color(0xffE04536),
+                )
+              : Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                ),
+        ),
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -101,7 +125,10 @@ class _StateSnapbarState extends State<StateSnapbar> {
                 SizedBox(
                   height: 10,
                 ),
-                Address(size: size, addresscontroller: addresscontroller, direction: direction),
+                Address(
+                    size: size,
+                    addresscontroller: addresscontroller,
+                    direction: direction),
                 SizedBox(
                   height: 15,
                 ),
@@ -162,16 +189,13 @@ class Address extends StatelessWidget {
             width: size.width * 0.7,
             child: TextFormField(
               controller: addresscontroller,
-              validator: (value) => direction.isEmpty
-                  ? 'Please enter a address'
-                  : null,
+              validator: (value) =>
+                  direction.isEmpty ? 'Please enter a address' : null,
               decoration: InputDecoration(
                   labelText: 'address',
-                  hintText:
-                      'Add your address and press save to save it.',
+                  hintText: 'Add your address and press save to save it.',
                   border: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Color(0xffE04536)),
+                      borderSide: BorderSide(color: Color(0xffE04536)),
                       borderRadius: BorderRadius.circular(16))),
             ),
           ),
@@ -185,8 +209,7 @@ class Address extends StatelessWidget {
             },
             child: Text(
               '  Save',
-              style:
-                  TextStyle(color: Color(0xffE04536), fontSize: 20),
+              style: TextStyle(color: Color(0xffE04536), fontSize: 20),
             ),
           ),
         ],
@@ -208,8 +231,7 @@ class LastName extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        validator: (value) =>
-            value.isEmpty ? 'Please enter a lastName' : null,
+        validator: (value) => value.isEmpty ? 'Please enter a lastName' : null,
         controller: lastname,
         decoration: InputDecoration(
             labelText: 'LastName',
@@ -239,8 +261,8 @@ class Name extends StatelessWidget {
         controller: name,
         decoration: InputDecoration(
             labelText: 'Name',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16))),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(16))),
       ),
     );
   }
