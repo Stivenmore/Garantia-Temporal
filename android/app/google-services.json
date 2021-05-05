@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512930843580",
+    "project_id": "devflutter-27bcf",
+    "storage_bucket": "devflutter-27bcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512930843580:android:a481c157e1ca8854feb9b9",
+        "android_client_info": {
+          "package_name": "com.example.pruebatecnica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512930843580-itffsqjm5v91afni6a4m7nldt3hfes0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzuKm7TEpdVTRxHT8VJltQjokTaAi5e6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512930843580-itffsqjm5v91afni6a4m7nldt3hfes0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
