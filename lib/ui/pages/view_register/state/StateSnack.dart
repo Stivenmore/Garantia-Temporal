@@ -14,6 +14,7 @@ class _StateViewSnackState extends State<StateViewSnack> {
     return Scaffold(
       body: Center(
       child: Text('No hay usuarios registrados'),
+        ),
     );
   }
 }
