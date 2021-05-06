@@ -1,6 +1,6 @@
-# pruebatecnica
+# Flutter, Firebase, Cubit, Patron BloC y mas
 
-A new Flutter project.
+Este repositorio cuenta con la prueba tecnica desarrollada de forma Online con Firebase (Alternativa a AWS, DigitalOcean, entre otras).
 
 ## Getting Started
 
