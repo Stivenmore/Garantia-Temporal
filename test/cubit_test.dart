@@ -1,16 +1,16 @@
-import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:pruebatecnica/domain/cubit/firebase_cubit.dart';
 
+//Asi seria la implementacion de Unit Testing
+
+/*
 void main() {
-  blocTest('This test is to check the wrong answer from the server',
+  blocTest('setdata false',
       build: () => FirebaseCubit(),
       act: (FirebaseCubit cubit) async {
         await cubit.setData(name: '', lastname: '', date: '', direction: []);
       },
       expect: () => [isA<FirebaseInitial>(), isA<FirebaseError>()]);
 
-  blocTest('This test is to check from the server',
+  blocTest('setdata true',
       build: () => FirebaseCubit(),
       act: (FirebaseCubit cubit) async {
         await cubit.setData(
@@ -20,10 +20,11 @@ void main() {
             direction: ['cra 19', 'no se que mas']);
       },
       expect: () => [isA<FirebaseInitial>(), isA<FirebaseSnapbar>()]);
-  blocTest('getData',
+  blocTest('getData true',
       build: () => FirebaseCubit(),
       act: (FirebaseCubit cubit) async {
         await cubit.getDate();
       },
       expect: () => [isA<FirebaseInitial>(), isA<FirebaseLoaded>()]);
 }
+*/
