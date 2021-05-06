@@ -12,7 +12,8 @@ class _StateViewSnackState extends State<StateViewSnack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      body: Center(
+      child: Text('No hay usuarios registrados'),
     );
   }
 }
